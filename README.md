@@ -10,3 +10,4 @@
 
 - React
 
+Please run 'npm start' to see app working.
