@@ -11,7 +11,7 @@ function TodoForm(props) {
     })
 
 
-    const handleChange = (e) => {                    //<--When value is change update 'input' value.
+    const handleChange = (e) => {                    //<--When value is changed update 'input' value.
         setInput(e.target.value);
     }
 
@@ -21,7 +21,7 @@ function TodoForm(props) {
 
         props.onSubmit({                             //<--When a new item gets added this will generate a random 'ID' for that item.    
             id: Math.floor(Math.random() * 10000),
-            text: input.charAt(0).toUpperCase() + input.slice(1)
+            text: input.charAt(0).toUpperCase() + input.slice(1)        //<--Capitalize first letter with new Todo
         })
 
         setInput('')
