@@ -14,21 +14,21 @@ function Todo({ todoList, completeTodo, removeTodo, updateTodo }) {
 
     const submitUpdate = value => {
 
-        updateTodo(edit.id, value);                                 //<--2.  When user updates a todo item, it will update 'updateTodo' value with the items id and new value. 
-        setEdit({ id: null, value: '' });                           //<--4.  Reset edit value back to default.
+        updateTodo(edit.id, value);                                 //← 1.  When user updates a item, passes values into into 'updateTodo' function for requirement checks 
+        setEdit({ id: null, value: '' });                           //← 4.  Reset edit value back to default.
     }
 
-    if (edit.id) {                                                  //<--1.  If something has been edited and the id is truthy, return item with id passed with new value.
-        return <TodoForm edit={edit} onSubmit={submitUpdate} />     //<--3.  Sends the updated value to 'TodoList.js'
+    if (edit.id) {                                                  //← 2.  If something has been edited and the id is truthy, return item with id passed with new value.
+        return <TodoForm edit={edit} onSubmit={submitUpdate} />     //← 3.  Sends the updated value to 'TodoList.js'
     }
 
 
 
     return todoList.map((todo, index) => (
 
-        <div className={todo.isComplete ? 'todo-row complete' : 'todo-row'} key={index}>       {/* If item clicked, will highlight/ghost item (completed/not) */}
+        <div className={todo.isComplete ? 'todo-row complete' : 'todo-row'} key={index}>       {/* If item clicked, will highlight/ghost item (completed/not)(CSS styling) */}
 
-            <div key={todo.id} onClick={() => completeTodo(todo.id)}>                          {/* When item is clicked, take it's id and pass it into the 'TodoList' file. */}
+            <div key={todo.id} onClick={() => completeTodo(todo.id)}>                          {/* When clicked, id is passed into function on 'TodoList' */}
                 {todo.text}
             </div>
 

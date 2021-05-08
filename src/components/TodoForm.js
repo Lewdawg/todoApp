@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 
 function TodoForm(props) {
 
-    const [input, setInput] = useState(props.edit ? props.edit.value : '')      //<--When we want to edit an item (making props.edit = true), make sure the current value is visible when doing so.
+    //↓ When we want to edit an item (making props.edit = true), make sure the current value is visible when doing so.
+    const [input, setInput] = useState(props.edit ? props.edit.value : '')
 
 
     const inputRef = useRef(null)
@@ -34,7 +35,7 @@ function TodoForm(props) {
         <form className='todo-form' onSubmit={handleSubmit}>
 
             {props.edit ? (
-                <>                                               {/* If item being edited display some different text and styles,use these settings */}
+                <>                         {/* If item being edited display some different text and styles,use these settings */}
                     <input type="text"
                         name='text'
                         placeholder='Update item'
